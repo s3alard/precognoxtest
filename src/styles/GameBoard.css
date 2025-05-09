@@ -1,28 +1,101 @@
 .game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: calc(0.1vw);
+
+  padding: calc(0.1vw);
+  box-sizing: content-box;
+  max-height: calc(90vw);
+  overflow: auto;
+}
+
+h1 {
+  margin: calc(0.1vw);
+  padding: calc(0.1vw);
+}
+
+.board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 5px;
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  background-color: #f0f0f0;
-  border: 2px solid #333;
-  border-radius: 8px;
+  gap: 10px;
+  width: 30%;
+  height: 30%;
+  max-width: 300px;
+  max-height: 300px;
+  aspect-ratio: 1;
 }
 
 .cell {
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #ccc;
+  font-size: calc(5vw);
   font-weight: bold;
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: #f8f8f8;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
+  box-sizing: border-box;
+  color: black;
+  margin: calc(1vw);
 }
 
 .cell:hover {
-  background-color: #f7f7f7;
+  background-color: #e0e0e0;
+}
+
+input {
+  margin-top: calc(1.5vw);
+  padding: 10px;
+  margin-bottom: calc(1vw);
+  width: 80%;
+  max-width: 300px;
+}
+
+button {
+  padding: calc(5vw), calc(5vw);
+  margin-top: calc(0.1vw);
+  margin-bottom: calc(0.1vw);
+  background-color: #282e28;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: calc(2vw);
+  border-radius: 5px;
+  width: 80%;
+  max-width: 300px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.winner-message {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  .game-board {
+    padding: 5px;
+  }
+
+  .board {
+    gap: 5px;
+  }
+
+  .cell {
+    font-size: calc(10vw);
+  }
+
+  input,
+  button {
+    width: 50%;
+  }
 }

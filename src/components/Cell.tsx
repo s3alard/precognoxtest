@@ -6,10 +6,23 @@ interface CellProps {
 }
 
 const Cell: React.FC<CellProps> = ({ value, onClick }) => {
+  const renderContent = () => {
+    if (value === 1) {
+      return "X";
+    }
+    if (value === 2) {
+      return "O";
+    }
+    return "";
+  };
+
   return (
-    <div className="cell" onClick={onClick}>
-      {value === 0 ? "" : value === 1 ? "X" : "O"}
-    </div>
+    <button
+      className={`cell ${value === 1 ? "x" : value === 2 ? "o" : ""}`}
+      onClick={onClick}
+    >
+      {renderContent()}
+    </button>
   );
 };
 
