@@ -1,15 +1,15 @@
 import React from "react";
 
-type CellProps = {
-  value: "" | "X" | "O";
+interface CellProps {
+  value: number;
   onClick: () => void;
-};
+}
 
 const Cell: React.FC<CellProps> = ({ value, onClick }) => {
   return (
-    <button className="cell" onClick={onClick}>
-      {value}
-    </button>
+    <div className="cell" onClick={onClick}>
+      {value === 0 ? "" : value === 1 ? "X" : "O"}
+    </div>
   );
 };
 
